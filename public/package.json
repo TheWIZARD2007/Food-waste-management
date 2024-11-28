@@ -1,0 +1,31 @@
+{
+    "name": "food-waste-management",
+    "version": "1.0.0",
+    "description": "A system for managing food waste donations and tracking.",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js",
+      "dev": "nodemon app.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+      "bcrypt": "^5.1.0",
+      "body-parser": "^1.20.2",
+      "cors": "^2.8.5",
+      "dotenv": "^16.1.4",
+      "ejs": "^3.1.9",
+      "express": "^4.18.2",
+      "jsonwebtoken": "^9.0.0",
+      "mongoose": "^7.4.0",
+      "nodemailer": "^6.9.4"
+    },
+    "devDependencies": {
+      "nodemon": "^3.0.1"
+    },
+    "engines": {
+      "node": ">=14.0.0"
+    }
+  }
+  

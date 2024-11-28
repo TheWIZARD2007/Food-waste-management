@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Food Waste Management</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>FWMS</h2>
+      <nav>
+        <ul>
+          <li><a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+          <li><a href="/donations"><i class="fas fa-hand-holding-heart"></i> Donations</a></li>
+          <li><a href="/waste"><i class="fas fa-trash-alt"></i> Waste Reports</a></li>
+          <li><a href="/profile"><i class="fas fa-user"></i> Profile</a></li>
+          <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header>
+        <h1>Welcome, <%= user.name %>!</h1>
+        <p>Here's an overview of your activity.</p>
+      </header>
+
+      <!-- Dashboard Statistics -->
+      <section class="stats">
+        <div class="stat">
+          <i class="fas fa-donate"></i>
+          <div>
+            <h3><%= donationCount %></h3>
+            <p>Total Donations</p>
+          </div>
+        </div>
+        <div class="stat">
+          <i class="fas fa-trash-alt"></i>
+          <div>
+            <h3><%= wasteReportCount %></h3>
+            <p>Waste Reports</p>
+          </div>
+        </div>
+        <div class="stat">
+          <i class="fas fa-user-friends"></i>
+          <div>
+            <h3><%= totalUsers %></h3>
+            <p>Users Registered</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Activity -->
+      <section class="recent-activity">
+        <h2>Recent Donations</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Food Type</th>
+              <th>Quantity</th>
+              <th>Donated By</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (recentDonations.length > 0) { %>
+              <% recentDonations.forEach(donation => { %>
+                <tr>
+                  <td><%= donation.foodType %></td>
+                  <td><%= donation.quantity %></td>
+                  <td><%= donation.donatedBy %></td>
+                  <td><%= donation.status %></td>
+                </tr>
+              <% }); %>
+            <% } else { %>
+              <tr>
+                <td colspan="4">No recent donations available.</td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Waste Reports -->
+      <section class="waste-reports">
+        <h2>Recent Waste Reports</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Food Type</th>
+              <th>Quantity</th>
+              <th>Location</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (recentWasteReports.length > 0) { %>
+              <% recentWasteReports.forEach(report => { %>
+                <tr>
+                  <td><%= report.foodType %></td>
+                  <td><%= report.quantity %></td>
+                  <td><%= report.location %></td>
+                  <td><%= report.status %></td>
+                </tr>
+              <% }); %>
+            <% } else { %>
+              <tr>
+                <td colspan="4">No recent waste reports available.</td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+logs/*.log
+
+# Environment Variables
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Temporary files and folders
+*.tmp
+*.swp
+*.lock
+tmp/
+temp/
+
+# IDE-specific files
+.vscode/
+.idea/
+*.iml
+
+# Build and Deployment
+dist/
+build/
+coverage/
+public/uploads/
+
+# Database
+*.sqlite
+*.sqlite3
+
+# Specific to NPM
+package-lock.json
+
+# Specific to EJS templates (cache)
+views/*.ejs~
